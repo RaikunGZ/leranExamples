@@ -78,6 +78,9 @@ console.log(arrCreate)
 
 /**
 Während Map immer ein neues Array erzeugt, das eine Kopie des gewählten Arrays ist
-(all, keys only, values only)
+Das von Map erzeugte Araay ist IMMER genauso groß wie das Array, das Map bearbeiten soll. 10 item in = 10 items out
+
+Object methoden: entries (all), keys only, values only
+
 Kann reduce ein Array erstellen, dass nur aus ausgewählten items besteht z.B. nur "% 2 === 0"
 */
