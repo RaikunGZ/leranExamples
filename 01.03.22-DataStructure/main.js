@@ -136,3 +136,5 @@ Während Map immer ein neues Array erzeugt, das eine Kopie des gewählten Arrays
 (all, keys only, values only)
 Kann reduce ein Array erstellen, dass nur aus ausgewählten items besteht z.B. nur "% 2 === 0"
 */
+
+// CLASSES
