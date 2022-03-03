@@ -44,6 +44,53 @@ fruits.forEach((fruit, index, array) => {
 })
 
 
+// MAP, FILTER & FIND
+
+/*
+    Map und Filter erzeugen beide ein Array wobei es einen großen Unterschied gibt.
+    Map erzeugt immer ein Array, das genauso viel Items hat wie das zu mappende Array
+
+    Beispiel:
+*/
+
+// MAP -> array
+const numbers1 = [1,5,9,16,18,21,33]
+const größerAls = numbers1.map(num => { // so macht man das nicht!!!
+    if(num > 17){
+        return num;
+    }
+})
+console.log(größerAls) 
+// Das Array würde diese if abfrage zwar wiederspiegeln, aber alle < 18 würden als undefined wiedergegeben werden!
+
+// FILTER -> array
+const filterNumbers = numbers1.filter(num => num > 17)
+console.log(filterNumbers)
+
+
+// FIND -> string -> Nur die erste gefundene Nummer
+const findNumbers = numbers1.find(num => num > 17)
+console.log(findNumbers)
+
+/*
+Dies sind nun recht simple Beispiele, doch gibt es einen kleinen Trick
+um auch komplexere Aufgaben ganz leicht aufzubauen.
+Schauen wir uns den Aufbau mal genauer an:
+
+const getCustomByID = (cid) => { <-- Funcktion
+
+    return customers.find(m => m.customerID === cid).companyName;
+                        ↓↓
+                    Grundaufbau
+    return customers.find(suche).companyName
+                        ↓↓
+                  offene Fragen
+    return Wo suche ich? array -> Was soll gemacht werden? find(bearbeitung) -> Was wird ausgegeben? companyName
+}
+console.log(getCustomByID("AROUT")) <-- Wert, der von irgendwo kommt und verarbeitet werden soll
+*/
+
+
 //  REDUCE
 /*
     reduce parameter (acc, item, array)
@@ -52,6 +99,14 @@ fruits.forEach((fruit, index, array) => {
         create a string = ,""
         create an array = ,[]
         create an object = ,{}
+
+    const empAndCity = employees.reduce((acc, item) => {
+        if(item.address.country === "UK"){
+            acc.push(`${item.lastName} -> ${item.address.city}`)
+        }
+        return acc;
+    }, []) <-- Datentyp
+    console.log(empAndCity)
 */
 
 // Normale Schreibweise bei complexerer Verwendung
@@ -76,11 +131,8 @@ const arrCreate = numbers.reduce((acc, number) => {
 }, [])
 console.log(arrCreate)
 
-/**
+/*
 Während Map immer ein neues Array erzeugt, das eine Kopie des gewählten Arrays ist
-Das von Map erzeugte Araay ist IMMER genauso groß wie das Array, das Map bearbeiten soll. 10 item in = 10 items out
-
-Object methoden: entries (all), keys only, values only
-
+(all, keys only, values only)
 Kann reduce ein Array erstellen, dass nur aus ausgewählten items besteht z.B. nur "% 2 === 0"
 */
